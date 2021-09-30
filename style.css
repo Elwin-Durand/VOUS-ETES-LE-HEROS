@@ -1,0 +1,60 @@
+/* 255, 255, 255 ---white
+ 215, 208, 213  ---light gray
+0, 0, 0 --- black
+255, 1, 251 --- pink
+2, 169, 234 --- blue  */
+
+@font-face{
+  font-family: "cybrpnuk2";
+  src: url(polices/Cybrpnuk2.ttf);
+}
+@font-face {
+  font-family: "futuristic";
+  src: url(polices/Futuristic\ Armour.otf);
+}
+
+
+.game {
+  background-color: black;
+  height: 750px;
+  width: 900px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: Helvetica;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(215, 208, 213 );
+  min-height: 100vh;
+}
+
+h1{
+  color: white;
+  font-family: cybrpnuk2;
+}
+
+.button1 {
+  align-self: flex-start;
+}
+.button1, .button2, .button3 {
+  background-color: rgb(2, 169, 234);
+}
+.button1:hover {
+  background-color: rgb(255, 1, 251);
+}
+.button2:hover {
+  background-color: rgb(255, 1, 251);
+}
+ .button3:hover {
+  background-color: rgb(255, 1, 251);
+}
+
