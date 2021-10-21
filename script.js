@@ -229,7 +229,7 @@ let exo = 0;
 let chaptersObj = {
      demarrage: {
         subtitle: "Démarrage",
-        text: `Réveil dans la société humaine.Mission: mener une vie ''convenable'', en ne pas laissant pas les humains découvrir votre nature de robot `,
+        text: `Réveil dans la société humaine.Mission: mener une vie ''convenable'', en ne laissant pas les humains découvrir votre nature de robot. Première étape: une source de revenus stables. `,
         img: "assets/img/accueil.jpg",
         option: [
             {
