@@ -6,11 +6,11 @@
 
 @font-face{
   font-family: "cybrpnuk2";
-  src: url(polices/Cybrpnuk2.ttf);
+  src: url(assets/polices/Cybrpnuk2.ttf);
 }
 @font-face {
   font-family: "futuristic";
-  src: url(polices/Futuristic\ Armour.otf);
+  src: url(assets/polices/Futuristic\ Armour.otf);
 }
 
 
@@ -56,5 +56,10 @@ h1{
 }
  .button3:hover {
   background-color: rgb(255, 1, 251);
+}
+
+img {
+  max-width: 500px;
+  max-height: 500px;
 }
 
