@@ -58,7 +58,7 @@ h1{
   background-color: rgb(255, 1, 251);
 }
 
-img {
+img , video{
   max-width: 500px;
   max-height: 500px;
 }
