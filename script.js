@@ -1,7 +1,7 @@
 
 
 
-let exo = 0;
+/*let exo = 0;
 (combat1 = function() {
     exo++;
     goToChapter('cinetique');
@@ -12,7 +12,37 @@ let exo = 0;
       } else {
           goToChapter('exomusclesending');
       }
-  });
+  });*/
+
+
+function trouverExo(){
+    exoFounded = true;
+    localStorage.setItem("exoFounded", exoFounded);
+    console.log(localStorage.getItem("upgrades"));
+    goToChapter('cinetique')
+}
+
+function perdreExo(){
+    
+    localStorage.setItem("exoFounded", exoFounded)
+    console.log("allo")
+    goToChapter('demarrage');
+}
+
+function PossedeExo(){
+    console.log(exoFounded);
+    if( exoFounded == true){
+        console.log("beatup")
+        goToChapter('victoire');
+    }
+    else if(exoFounded == false){
+        goToChapter('exomusclesending');
+    }
+}
+
+
+
+
 
 
 
@@ -121,7 +151,7 @@ let chaptersObj = {
         option: [
             {
                 text: "Améliorer performances physiques",
-                action: "combat1()"
+                action: "trouverExo()"
             },
             {
                 text: "Améliorer votre A.I. ",
@@ -180,11 +210,11 @@ let chaptersObj = {
         option: [
             {
                 text: "Non",
-                action: "combat2()"
+                action: "PossedeExo()"
             },
             {
                 text: "Oui",
-                action: "combat2()"
+                action: "PossedeExo()"
             }
         ]
     },
@@ -229,7 +259,9 @@ function goToChapter(chapterName) {
     let text = document.querySelector('p')
     text.innerHTML = chapters.text;
     let img = document.querySelector('img')
-    img.src = chapters.img;
+    let video = document.querySelector('.parentImage')
+    
+    
 
 
 
@@ -247,11 +279,16 @@ function goToChapter(chapterName) {
 
     let parentImage = document.querySelector('.parentImage');
     if (chapters.video == 'assets/video/police.mp4') {
-        parentImage.innerHTML = "<video src='assets/video/police.mp4' autoplay='autoplay' loop='true'></video>";
+        parentImage.innerHTML = "<video src='assets/video/police.mp4' autoplay='autoplay' loop='true' muted='true'> </video>";
     };
     if (chapters.video == 'assets/video/hub.mp4') {
-        parentImage.innerHTML = "<video src='assets/video/hub.mp4' autoplay='autoplay' loop='true'></video>";
+        parentImage.innerHTML = "<video src='assets/video/hub.mp4' autoplay='autoplay' loop='true' muted='true' > </video>";
     };
+
+    if(chapters.video == undefined){
+        parentImage.innerHTML = `<img src="${chapters.img}"> </img>`;
+    };
+
 
     const son = new Audio('assets/video/robot.mp3');
     const body = document.querySelector('body')
@@ -264,11 +301,45 @@ function goToChapter(chapterName) {
         });
     };
 
-
-
+    localStorage.setItem("chapters", chapterName);
+    console.log(localStorage.getItem('chapters'))
 };
 
-goToChapter("demarrage");
+
+
+
+console.log(localStorage.getItem('chapters'))
+
+if(localStorage.getItem('chapters') != undefined){
+    goToChapter(`${localStorage.getItem('chapters')}`)
+}
+else {
+    goToChapter('demarrage')
+}
+
+
+
+if(localStorage.getItem('exoFounded') != undefined){
+   exoFounded = true;
+}
+else {
+    exoFounded = false;
+}
+
+
+
+if(localStorage.getItem("upgrades") != undefined){
+    console.log(localStorage.getItem("upgrades"));
+    exoFounded = localStorage.getItem("upgrades");
+    console.log(exoFounded);
+}
+else {
+    
+    console.log("t pas bo")
+
+}
+
+
 
 
 
