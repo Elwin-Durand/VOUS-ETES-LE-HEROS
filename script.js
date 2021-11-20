@@ -250,7 +250,7 @@ let chaptersObj = {
 
 
 
-
+const son = new Audio('assets/video/robot.mp3');
 
 function goToChapter(chapterName) {
     let chapters = chaptersObj[chapterName];
@@ -258,12 +258,6 @@ function goToChapter(chapterName) {
     subtitles.innerHTML = chapters.subtitle;
     let text = document.querySelector('p')
     text.innerHTML = chapters.text;
-    let img = document.querySelector('img')
-    let video = document.querySelector('.parentImage')
-    
-    
-
-
 
     let butt = document.querySelector('.troisB')
     let opFin = "";
@@ -274,32 +268,17 @@ function goToChapter(chapterName) {
         opFin += `<button onclick="${choix.action}">${choix.text}</button>`;
     }
     butt.innerHTML = opFin;
-  
-
 
     let parentImage = document.querySelector('.parentImage');
-    if (chapters.video == 'assets/video/police.mp4') {
-        parentImage.innerHTML = "<video src='assets/video/police.mp4' autoplay='autoplay' loop='true' muted='true'> </video>";
-    };
-    if (chapters.video == 'assets/video/hub.mp4') {
-        parentImage.innerHTML = "<video src='assets/video/hub.mp4' autoplay='autoplay' loop='true' muted='true' > </video>";
-    };
 
     if(chapters.video == undefined){
-        parentImage.innerHTML = `<img src="${chapters.img}"> </img>`;
-    };
+        parentImage.innerHTML = `<img src="${chapters.img}">`;
+    } else {
+        parentImage.innerHTML = `<video src="${chapters.video}" autoplay loop muted>`;
+    }
 
-
-    const son = new Audio('assets/video/robot.mp3');
-    const body = document.querySelector('body')
-
-    butt.onclick = function () {
-        body.classList.add('play');
-        son.play();
-        son.addEventListener('ended', function () {
-            body.classList.remove('play');
-        });
-    };
+    son.currentTime = 0;
+    son.play();
 
     localStorage.setItem("chapters", chapterName);
     console.log(localStorage.getItem('chapters'))
