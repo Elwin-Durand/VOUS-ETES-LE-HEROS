@@ -1,6 +1,4 @@
 
-
-
 /*let exo = 0;
 (combat1 = function() {
     exo++;
@@ -15,31 +13,44 @@
   });*/
 
 
-function trouverExo(){
+function trouverExo() {
     exoFounded = true;
     localStorage.setItem("exoFounded", exoFounded);
     console.log(localStorage.getItem("upgrades"));
     goToChapter('cinetique')
 }
 
-function perdreExo(){
-    
+function perdreExo() {
+
     localStorage.setItem("exoFounded", exoFounded)
     console.log("allo")
     goToChapter('demarrage');
 }
 
-function PossedeExo(){
+function PossedeExo() {
     console.log(exoFounded);
-    if( exoFounded == true){
+    if (exoFounded == true) {
         console.log("beatup")
         goToChapter('victoire');
     }
-    else if(exoFounded == false){
+    else if (exoFounded == false) {
         goToChapter('exomusclesending');
     }
 }
 
+if (localStorage.getItem('exoFounded') != undefined) {
+    exoFounded = true;
+}
+else {
+    exoFounded = false;
+}
+function reset() {
+    localStorage.clear();
+    exoFounded = false;
+
+    console.log("reset")
+    goToChapter('demarrage');
+}
 
 
 
@@ -49,13 +60,13 @@ function PossedeExo(){
 
 
 let chaptersObj = {
-     demarrage: {
-        subtitle: "Démarrage",
+    demarrage: {
+        subtitle: "Démarrage ",
         text: `Réveil dans la société humaine.Mission: mener une vie ''convenable'', en ne laissant pas les humains découvrir votre nature de robot. Première étape: une source de revenus stables. `,
         img: "assets/img/accueil.jpg",
         option: [
             {
-                text:  "Travailler comme caissier",
+                text: "Travailler comme caissier",
                 action: "goToChapter('clientending')"
             },
             {
@@ -65,6 +76,11 @@ let chaptersObj = {
             {
                 text: "Combats clandestins",
                 action: "goToChapter('clandestinending')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -73,6 +89,11 @@ let chaptersObj = {
         text: "Un client remarque votre manque de naturel, et devine votre nature. Game Over.",
         img: "assets/img/etonnement.jpg",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     },
@@ -82,6 +103,11 @@ let chaptersObj = {
         img: "assets/img/police.jpg",
         video: "assets/video/police.mp4",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     },
@@ -92,8 +118,13 @@ let chaptersObj = {
         img: "assets/img/job.jpg",
         option: [
             {
-                text: "réunion avec patron",
+                text: "Réunion avec patron",
                 action: "goToChapter('verre')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -103,16 +134,21 @@ let chaptersObj = {
         img: "assets/img/drink.jpg",
         option: [
             {
-                text: "pas de verre",
+                text: "Pas de verre",
                 action: "goToChapter('pasdeverreending')"
             },
             {
-                text: "attitude festive",
+                text: "Attitude festive",
                 action: "goToChapter('festiveending')"
             },
             {
-                text: "attitude sobre",
+                text: "Attitude sobre",
                 action: "goToChapter('sansaccroc')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -121,6 +157,11 @@ let chaptersObj = {
         text: "Votre employeur ne vous apprécie plus autant qu'avant, il ne mets que quelques semaines pour se débarrasser de vous. Game Over. ",
         img: "assets/img/fired.jpg",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     },
@@ -129,6 +170,11 @@ let chaptersObj = {
         text: "Votre boss s'est trop pris au jeu, vous renversant de l'alcool sur votre corps, provoquant un court-circuit. Game Over. ",
         img: "assets/img/circuit.jpg",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     },
@@ -138,8 +184,13 @@ let chaptersObj = {
         img: "assets/img/taxi.jpg",
         option: [
             {
-            text: "Améliorations du corps",
-            action: "goToChapter('upgrades')"
+                text: "Améliorations du corps",
+                action: "goToChapter('upgrades')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -156,6 +207,11 @@ let chaptersObj = {
             {
                 text: "Améliorer votre A.I. ",
                 action: "goToChapter('intelligence')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -165,8 +221,13 @@ let chaptersObj = {
         img: "assets/img/cinetique.jpg",
         option: [
             {
-                text: "upgrades up to date",
+                text: "Upgrades up to date",
                 action: "goToChapter('rendement')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -178,6 +239,11 @@ let chaptersObj = {
             {
                 text: "Upgrades up to date",
                 action: "goToChapter('rendement')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -189,6 +255,11 @@ let chaptersObj = {
             {
                 text: "Surprise",
                 action: "goToChapter('attaque')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -200,6 +271,11 @@ let chaptersObj = {
             {
                 text: "Moment de vérité",
                 action: "goToChapter('exomuscles')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -215,6 +291,11 @@ let chaptersObj = {
             {
                 text: "Oui",
                 action: "PossedeExo()"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -223,6 +304,11 @@ let chaptersObj = {
         text: "Votre A.I. ne suffit pas pour le ruser dans ce combat. Il vous mets rapidement hors-service. Game Over. ",
         img: "assets/img/destroyed.jpg",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     },
@@ -234,6 +320,11 @@ let chaptersObj = {
             {
                 text: "État de la mission",
                 action: "goToChapter('fin')"
+            },
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
             }
         ]
     },
@@ -242,6 +333,11 @@ let chaptersObj = {
         text: "Vous possédez un revenu stable, des moyens d'améliorer votre corps, et votre A.I est assez performante pour continuer à tromper les humains sur votre véritable nature. Vous vivez donc une vie convenable, et votre mission est une totale réussite .  ",
         img: "assets/img/fin.jpg",
         option: [
+            {
+                text: "Effacer ma partie",
+                action: "reset()"
+
+            }
 
         ]
     }
@@ -260,8 +356,9 @@ function goToChapter(chapterName) {
     text.innerHTML = chapters.text;
     let img = document.querySelector('img')
     let video = document.querySelector('.parentImage')
-    
-    
+
+
+
 
 
 
@@ -271,10 +368,10 @@ function goToChapter(chapterName) {
 
     for (let index = 0; index < opArr.length; index++) {
         let choix = opArr[index];
-        opFin += `<button onclick="${choix.action}">${choix.text}</button>`;
+        opFin += `<button class="button" onclick="${choix.action}">${choix.text}</button>`;
     }
     butt.innerHTML = opFin;
-  
+
 
 
     let parentImage = document.querySelector('.parentImage');
@@ -285,24 +382,24 @@ function goToChapter(chapterName) {
         parentImage.innerHTML = "<video src='assets/video/hub.mp4' autoplay='autoplay' loop='true' muted='true' > </video>";
     };
 
-    if(chapters.video == undefined){
+    if (chapters.video == undefined) {
         parentImage.innerHTML = `<img src="${chapters.img}"> </img>`;
     };
 
 
-    const son = new Audio('assets/video/robot.mp3');
-    const body = document.querySelector('body')
-
-    butt.onclick = function () {
-        body.classList.add('play');
-        son.play();
-        son.addEventListener('ended', function () {
-            body.classList.remove('play');
-        });
-    };
 
     localStorage.setItem("chapters", chapterName);
     console.log(localStorage.getItem('chapters'))
+
+
+
+    const body = document.querySelector('body');
+    body.className = chapterName;
+
+
+
+
+
 };
 
 
@@ -310,7 +407,7 @@ function goToChapter(chapterName) {
 
 console.log(localStorage.getItem('chapters'))
 
-if(localStorage.getItem('chapters') != undefined){
+if (localStorage.getItem('chapters') != undefined) {
     goToChapter(`${localStorage.getItem('chapters')}`)
 }
 else {
@@ -319,25 +416,48 @@ else {
 
 
 
-if(localStorage.getItem('exoFounded') != undefined){
-   exoFounded = true;
-}
-else {
-    exoFounded = false;
-}
 
 
 
-if(localStorage.getItem("upgrades") != undefined){
+if (localStorage.getItem("upgrades") != undefined) {
     console.log(localStorage.getItem("upgrades"));
     exoFounded = localStorage.getItem("upgrades");
     console.log(exoFounded);
 }
-else {
-    
-    console.log("t pas bo")
 
-}
+
+
+
+
+let caseCocher = document.querySelector('.case');
+let caseSon = true;
+
+caseCocher.addEventListener('change', function () {
+
+    caseSon = caseCocher.checked;
+    if (caseSon = caseCocher.checked) {
+        caseSon = true;
+    }
+    else {
+        caseSon = false;
+    }
+    console.log("case");
+})
+
+
+
+let butt = document.querySelector('.troisB')
+const body = document.querySelector('body')
+
+
+butt.onclick = function () {
+    // body.classList.add('play');
+    localStorage.setItem('case_Son', caseSon);
+    const son = new Audio('assets/video/robot.mp3');
+    if (caseSon == true) {
+        son.play();
+    }
+};
 
 
 
