@@ -63,7 +63,7 @@ let chaptersObj = {
     demarrage: {
         subtitle: "Démarrage ",
         text: `Réveil dans la société humaine.Mission: mener une vie ''convenable'', en ne laissant pas les humains découvrir votre nature de robot. Première étape: une source de revenus stables. `,
-        img: "assets/img/accueil.jpg",
+        img: "assets/img/accueil.JPG",
         option: [
             {
                 text: "Travailler comme caissier",
@@ -266,7 +266,7 @@ let chaptersObj = {
     attaque: {
         subtitle: " Fâcheux imprévu",
         text: "Un robot vous attaque sur la ruelle du chemin du retour! Il affirme vous avoir observé un certain temps avant de découvrir votre identité. Vous ne pouvez le laisser en liberté ! Néanmoins, il a l'air doté de plus de force que vous.",
-        img: "assets/img/fight.jpg",
+        img: "assets/img/fight.JPG",
         option: [
             {
                 text: "Moment de vérité",
