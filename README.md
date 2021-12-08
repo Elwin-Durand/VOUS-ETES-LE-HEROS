@@ -2,6 +2,7 @@
  # VOUS-ETES-LE-HEROS-A.I.
 
 ## A.I. ##
+EN LIGNE : [A.I. - Projet vous êtes le héros](https://elwin-durand.github.io/VOUS-ETES-LE-HEROS/)
 
 [Développement web - Projet vous êtes le héros](https://smnarnold.com/projets/vous-etes-le-heros)
 
